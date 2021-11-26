@@ -1,7 +1,17 @@
 # quantum-shooter
 
-Simple shooter game writtern in Lua and LOVE2D framework with
-Einstein-Podolsky-Rosen bullets. 
+Simple shooter game writtern in [Lua](https://www.lua.org/) and
+[LÖVE](love2d.org/)  framework with Einstein-Podolsky-Rosen bullets/pairs.
+
+## How to run?
+
+Just type
+
+`love .`
+
+in the main directory. 
+
+## What is Einstein-Podolsky-Rosen pair?
 
 More about [EPR paradox](https://en.wikipedia.org/wiki/EPR_paradox) and [Bell
 states](https://en.wikipedia.org/wiki/Bell_state). Also recommended [Orginal
@@ -27,6 +37,11 @@ if you decide to play with classical bullets or with quantum.
 Additionally, the plateyer can
 * `R` restart the game after getting hit by the enemy
 * `ESC` - quit the game.
+
+## Screenshots
+
+![Screenshot 1](/img/screen1.png)
+![Screenshot 2](/img/screen2.png)
 
 ## Limitation
 

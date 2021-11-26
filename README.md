@@ -7,9 +7,9 @@ The game is build around the simple shooting game, with a sligth extension of a
 player having an ability to use EPR pairs to propagate bullets. Basic controls
 inclide
 
-`SPACE` - shoot a standard bullet
-`X` - shoot a quantum bullet (a quant)
-`M` - measure quantum bullets (quants) to get classical bullets
+* `SPACE` - shoot a standard bullet
+* `X` - shoot a quantum bullet (a quant)
+* `M` - measure quantum bullets (quants) to get classical bullets
 
 A player can choose to shoot with classical bullets, which interacti with
 enemies, or quantum bullets. Quantum bullets have to be *measures* and can
@@ -22,7 +22,8 @@ if
 This project is a byproduct of reading Lua tutorials. There is only one level
 and a player has only one live. Game parameters can be changed in `conf.lua`.
 
-Also, all quantum bullets have to mea measured at the same time. 
+There is only one quantum state used. Also, all quantum bullets have to mea
+measured at the same time.
 
 
 More about [EPR paradox](https://en.wikipedia.org/wiki/EPR_paradox) and [Bell

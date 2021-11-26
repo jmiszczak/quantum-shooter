@@ -16,6 +16,9 @@ enemies, or quantum bullets. Quantum bullets have to be *measures* and can
 result in the appearance of two classical bullet or none of them. It up to you
 if 
 
+Additionally, the plateyer can
+* `R` restart the game after getting hit by the enemy
+* `ESC` - quit the game.
 
 ## Limitation
 

@@ -2,7 +2,7 @@ debug = true
 
 player = { x = 200, y = 710, speed = 150, img = nil}
 canShoot = true
-canShootTimerMax = 0.2
+canShootTimerMax = 0.5
 canShootTimer = canShootTimerMax
 
 bulletImg = nil
@@ -32,7 +32,7 @@ function love.update(dt)
     canShoot = true
   end
 
-  if love.keyboard.isDown('escape') then
+  if love.keyboard.isDown('escape', 'q') then
     love.event.push('quit')
   end
 
@@ -46,12 +46,13 @@ function love.update(dt)
     end
   end
 
-  if love.keyboard.isDown('space', 'rctrl', 'lctrl') and canShoot then
+  if isAlive and love.keyboard.isDown('space', 'rctrl', 'lctrl') and canShoot then
     newBullet = { x = player.x + (player.img:getWidth()/2), y = player.y, img = bulletImg }
     table.insert(bullets, newBullet)
     canShoot = false
     canShootTimer = canShootTimerMax
   end
+
   for i, bullet in ipairs(bullets) do
     bullet.y = bullet.y - (250*dt)
     if bullet.y < 0 then
@@ -74,7 +75,6 @@ function love.update(dt)
   		table.remove(enemies, i)
   	end
   end
-
 
   for i, enemy in ipairs(enemies) do
     for j, bullet in ipairs(bullets) do
@@ -123,10 +123,12 @@ function love.draw(dt)
   -- love.graphics.print("Hello World!", 400, 300)
   if isAlive then
 	  love.graphics.draw(player.img, player.x, player.y)
+	  love.graphics.print("Your score: " .. score,
+      20, 10)
   else
 	  love.graphics.print("Press 'R' to restart",
       love.graphics:getWidth()/2-50, love.graphics:getHeight()/2-10)
-	  love.graphics.print("Your score:" .. score,
+	  love.graphics.print("Final score: " .. score,
       love.graphics:getWidth()/2-40, love.graphics:getHeight()/2+10)
   end
   -- love.graphics.draw(player.img,player.x,player.y)

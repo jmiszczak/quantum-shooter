@@ -18,7 +18,6 @@ states](https://en.wikipedia.org/wiki/Bell_state). Also recommended [Orginal
 paper by Einstein, Podolsky and Rosen](https://doi.org/10.1103/PhysRev.47.777),
 which is free to read.
 
-
 ## Description
 
 The game is build around the simple shooting game, with a sligth extension of a

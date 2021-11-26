@@ -14,7 +14,7 @@ quantImg = nil
 quants = {}
 
 -- enemies
-createEnemyTimerMax = 0.5
+createEnemyTimerMax = 1
 createEnemyTimer = createEnemyTimerMax
 enemyIimg = nil
 enemies = {}
@@ -28,7 +28,7 @@ function love.load(arg)
   player.img = love.graphics.newImage('assets/plane.png')
   bulletImg = love.graphics.newImage('assets/bullet.png')
   quantImg = love.graphics.newImage('assets/blue_beam.png')
-  enemyImg = love.graphics.newImage('assets/bullet.png')
+  enemyImg = love.graphics.newImage('assets/enemy.png')
 end
 
 -- main functionality

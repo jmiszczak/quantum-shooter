@@ -1,5 +1,13 @@
 # quantum-shooter
-Simple shooter game writtern in Lua and LOVE2D framework with Einstein-Podolsky-Rosen bullets. 
+
+Simple shooter game writtern in Lua and LOVE2D framework with
+Einstein-Podolsky-Rosen bullets. 
+
+More about [EPR paradox](https://en.wikipedia.org/wiki/EPR_paradox) and [Bell
+states](https://en.wikipedia.org/wiki/Bell_state). Also recommended [Orginal
+paper by Einstein, Podolsky and Rosen](https://doi.org/10.1103/PhysRev.47.777),
+which is free to read.
+
 
 ## Description
 
@@ -11,7 +19,7 @@ inclide
 * `X` - shoot a quantum bullet (a quant)
 * `M` - measure quantum bullets (quants) to get classical bullets
 
-A player can choose to shoot with classical bullets, which interacti with
+A player can choose to shoot with classical bullets, which direcly hit the
 enemies, or quantum bullets. Quantum bullets have to be *measures* and can
 result in the appearance of two classical bullet or none of them. It up to you
 if you decide to play with classical bullets or with quantum. 
@@ -28,21 +36,10 @@ and a player has only one live. Game parameters can be changed in `conf.lua`.
 There is only one quantum state used. Also, all quantum bullets have to mea
 measured at the same time.
 
-
-More about [EPR paradox](https://en.wikipedia.org/wiki/EPR_paradox) and [Bell
-states](https://en.wikipedia.org/wiki/Bell_state). Also recommended [Orginal
-paper by Einstein, Podolsky and Rosen](https://doi.org/10.1103/PhysRev.47.777),
-which is free to read.
-
-
-
-
-
 ## Requirements
 
 In order to run the game you need to install [LÖVE](love2d.org/) framework. The
 game was tested under Ubuntu 20.04.3 LTS with LÖVE 11.3.
-
 
 ## Credits
 

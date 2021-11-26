@@ -5,11 +5,16 @@ canShoot = true
 canShootTimerMax = 0.5
 canShootTimer = canShootTimerMax
 
+-- standard bullets
 bulletImg = nil
 bullets = {}
 
+-- quants - quantum bullets
+quantImg = nil
+quants = {}
+
 -- enemies
-createEnemyTimerMax = 0.4
+createEnemyTimerMax = 0.5
 createEnemyTimer = createEnemyTimerMax
 enemyIimg = nil
 enemies = {}
@@ -22,7 +27,8 @@ score = 0 -- how many enemies were shot
 function love.load(arg)
   player.img = love.graphics.newImage('assets/plane.png')
   bulletImg = love.graphics.newImage('assets/bullet.png')
-  enemyImg = love.graphics.newImage('assets/enemy.png')
+  quantImg = love.graphics.newImage('assets/blue_beam.png')
+  enemyImg = love.graphics.newImage('assets/bullet.png')
 end
 
 -- main functionality
@@ -32,7 +38,7 @@ function love.update(dt)
     canShoot = true
   end
 
-  if love.keyboard.isDown('escape', 'q') then
+  if love.keyboard.isDown('escape') then
     love.event.push('quit')
   end
 
@@ -46,6 +52,7 @@ function love.update(dt)
     end
   end
 
+  -- new bullets
   if isAlive and love.keyboard.isDown('space', 'rctrl', 'lctrl') and canShoot then
     newBullet = { x = player.x + (player.img:getWidth()/2), y = player.y, img = bulletImg }
     table.insert(bullets, newBullet)
@@ -60,6 +67,41 @@ function love.update(dt)
     end
   end
 
+  -- shoot quantum EPR beams
+  if isAlive and love.keyboard.isDown('x') and canShoot then
+    newQuant = { x = player.x, y = player.y, img = quantImg }
+    table.insert(quants, newQuant)
+    canShoot = false
+    canShootTimer = canShootTimerMax
+  end
+
+  -- measure quantum EPR pairs to get classical bullets
+  if isAlive and love.keyboard.isDown('m') then
+    for i, quant in ipairs(quants) do
+      -- if both qubits are measures 1 - add two new bullets
+      if math.random() > 0.5 then
+          newBulletA = { 
+            x = quant.x + (quant.img:getWidth()), 
+            y = quant.y, img = bulletImg
+          }
+          newBulletB = { 
+            x = quant.x, 
+            y = quant.y, img = bulletImg
+          }
+          table.insert(bullets, newBulletA)
+          table.insert(bullets, newBulletB)
+      end
+      table.remove(quants,i)
+    end
+  end
+
+  for i, quant in ipairs(quants) do
+    quant.y = quant.y - (250*dt)
+    if quant.y < 0 then
+      table.remove(quants, i)
+    end
+  end
+  
   createEnemyTimer = createEnemyTimer - (1 * dt)
   if createEnemyTimer < 0 then
     createEnemyTimer = createEnemyTimerMax
@@ -120,7 +162,8 @@ end
 end
 
 function love.draw(dt)
-  -- love.graphics.print("Hello World!", 400, 300)
+
+  -- update score information 
   if isAlive then
 	  love.graphics.draw(player.img, player.x, player.y)
 	  love.graphics.print("Your score: " .. score,
@@ -131,11 +174,18 @@ function love.draw(dt)
 	  love.graphics.print("Final score: " .. score,
       love.graphics:getWidth()/2-40, love.graphics:getHeight()/2+10)
   end
-  -- love.graphics.draw(player.img,player.x,player.y)
+  
+  -- draw bullets
   for i, bullet in ipairs(bullets) do
     love.graphics.draw(bullet.img, bullet.x, bullet.y)
   end
 
+  -- draw quants
+  for i, quant in ipairs(quants) do
+    love.graphics.draw(quant.img, quant.x, quant.y)
+  end
+
+  -- draw enemies
   for i, enemy in ipairs(enemies) do
   	love.graphics.draw(enemy.img, enemy.x, enemy.y)
   end

@@ -14,7 +14,7 @@ inclide
 A player can choose to shoot with classical bullets, which interacti with
 enemies, or quantum bullets. Quantum bullets have to be *measures* and can
 result in the appearance of two classical bullet or none of them. It up to you
-if 
+if you decide to play with classical bullets or with quantum. 
 
 Additionally, the plateyer can
 * `R` restart the game after getting hit by the enemy
@@ -30,7 +30,12 @@ measured at the same time.
 
 
 More about [EPR paradox](https://en.wikipedia.org/wiki/EPR_paradox) and [Bell
-states](https://en.wikipedia.org/wiki/Bell_state).
+states](https://en.wikipedia.org/wiki/Bell_state). Also recommended [Orginal
+paper by Einstein, Podolsky and Rosen](https://doi.org/10.1103/PhysRev.47.777),
+which is free to read.
+
+
+
 
 
 ## Requirements
